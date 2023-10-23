@@ -10,8 +10,8 @@ FLAGS="$@"
 cd ${linux_sgx_src_dir}
 
 # build sgxsdk
-# rule "sdk_install_pkg" depends on rule "sdk", so skip rule "sdk"
-make sdk_install_pkg ${FLAGS} -j$(nproc) -Orecurse -s
+# rule "sdk_install_pkg_no_mitigation" depends on rule "sdk_no_mitigation", so skip rule "sdk_no_mitigation"
+make USE_OPT_LIBS=3 sdk_install_pkg_no_mitigation ${FLAGS} -j$(nproc) -Orecurse -s
 
 sudo apt-get install build-essential python-is-python3 -y
 
