@@ -27,16 +27,3 @@ fi
 cd ${PROJECT_DIR}
 echo -e "${CYAN}Set APT source${NC}"
 SKIP_ENV=1 source ./utils/set_apt_source.sh
-
-if [ ${UBUNTU_NAME} = "noble" ]; then
-    echo -e "${CYAN}Patch installer${NC}"
-    if ! grep -qF "Codename: noble" ${LINUX_SGX_SRC_DIR}/linux/installer/deb/local_repo_tool/conf/distributions
-    then
-        patch -p1 -d ${LINUX_SGX_SRC_DIR} < ${PROJECT_DIR}/patch/noble_dist.patch
-        echo -e "${CYAN}Patch successfully${NC}"
-    else
-        echo -e "${YELLOW}Already patched${NC}"
-    fi
-else
-    echo -e "${YELLOW}Needn't patch ${LINUX_SGX_SRC_DIR} for ${UBUNTU_NAME}${NC}"
-fi
