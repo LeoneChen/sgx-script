@@ -6,9 +6,8 @@ source ${SCRIPT_DIR}/env.sh
 
 echo -e "${CYAN}Remove toolset at /usr/local/bin${NC}"
 sudo rm -f /usr/local/bin/{ar,as,ld,ld.gold,objcopy,objdump,ranlib}
-echo -e "${CYAN}Remove debian repo${NC}"
+echo -e "${CYAN}Remove apt source${NC}"
 sudo rm -f /etc/apt/sources.list.d/intel-sgx.list
-sudo rm -rf /opt/sgx_debian_local_repo
 
 echo -e "${CYAN}Restore ${LINUX_SGX_SRC_DIR}${NC}"
 cd ${LINUX_SGX_SRC_DIR}

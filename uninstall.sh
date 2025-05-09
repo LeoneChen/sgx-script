@@ -16,3 +16,6 @@ fi
 
 echo -e "${CYAN}Remove SGX PSW${NC}"
 sudo apt-get purge libsgx-.* sgx-.* -y
+
+echo -e "${CYAN}Remove debian local repo${NC}"
+sudo rm -rf /opt/sgx_debian_local_repo

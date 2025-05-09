@@ -4,7 +4,7 @@ set -e
 SCRIPT_DIR=$(realpath $(dirname ${BASH_SOURCE[0]}))
 source ${SCRIPT_DIR}/env.sh
 
-sudo pwd
+sudo mkdir -p /etc/init
 
 COMMON_FLAGS=""
 if [ "$DEBUG_BUILD" -eq 1 ]; then
